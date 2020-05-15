@@ -160,7 +160,7 @@ main {
 .about-info {
   display: grid;
   grid-gap: 30px;
-  grid-template-areas: 'bioimage bio bio' 'job1 job2 job3';
+  grid-template-areas: 'bioimage bio bio' 'job1 job2 job3';
   grid-template-columns: repeat(3, 1fr); }
   .about-info .bio-image {
     grid-area: bioimage;
@@ -180,6 +180,30 @@ main {
     background: #2e5564;
     padding: 0.5rem;
     border-bottom: #2a9d8f 5px solid; }
+
+.edu-tech {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 2rem; }
+  .edu-tech ul {
+    list-style: none; }
+    .edu-tech ul li {
+      text-align: left; }
+  .edu-tech .technologies {
+    display: flex;
+    flex-wrap: wrap; }
+    .edu-tech .technologies .tech {
+      display: flex;
+      width: 3rem;
+      flex-direction: column;
+      align-content: center;
+      justify-content: center; }
+      .edu-tech .technologies .tech img {
+        width: 2rem;
+        margin: auto; }
+      .edu-tech .technologies .tech div {
+        text-align: center; }
 
 .projects {
   display: grid;
@@ -228,6 +252,51 @@ main {
 .btn-light {
   background: #a3c7d5;
   color: #333; }
+
+.btn-cta {
+  position: relative;
+  display: inline-block;
+  margin: 30px 0;
+  padding: 0;
+  overflow: hidden;
+  border-width: 0;
+  outline: none;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  background-color: #2ecc71;
+  color: #ecf0f1;
+  transition: background-color .3s; }
+
+.btn-cta:hover, .btn:focus, .btn-dark:focus, .btn-light:focus {
+  background-color: #27ae60; }
+
+.btn-cta > * {
+  position: relative; }
+
+.btn-cta span {
+  display: block;
+  padding: 12px 24px; }
+
+.btn-cta:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 0;
+  padding-top: 0;
+  border-radius: 100%;
+  background-color: rgba(236, 240, 241, 0.3);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); }
+
+.btn-cta:active:before {
+  width: 120%;
+  padding-top: 120%;
+  transition: width .2s ease-out, padding-top .2s ease-out; }
 
 #main-footer {
   text-align: center;
