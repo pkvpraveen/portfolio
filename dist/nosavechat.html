@@ -5,14 +5,18 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172724412-1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
       gtag('js', new Date());
 
       gtag('config', 'UA-172724412-1');
     </script>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <link rel="stylesheet" href="css/nosavechat.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Chat Without Save</title>
 </head>
 <body>
@@ -23,7 +27,7 @@
 <div>
     <form onsubmit="redirect(event);" action="#">
         <label for="country">Country</label>
-        <select id="country" name="country">
+        <select id="country" name="country" onchange="onChange()">
             <option value="91">India</option>
             <option value="1">USA</option>
             <option value="1">Canada</option>
@@ -39,15 +43,19 @@
         <div id="error"></div>
         <label for="number">Phone number</label>
         <div class="input">
-            <input type="tel" id="number" />
+            <span id="country-code"></span><input type="tel" id="number"/>
             <a onclick="javascript:paste()">
-                <img src="img/duplicate.svg" alt="paste" />
+                <img src="img/duplicate.svg" alt="paste"/>
             </a>
         </div>
         <button type="submit">Chat</button>
     </form>
 </div>
 <script>
+  function onChange() {
+    document.getElementById('country-code').innerText = '+' + document.getElementById("country").value + ' ';
+  }
+  onChange();
   function redirect(e) {
     e.preventDefault();
     var number = document.getElementById("number").value;
@@ -62,6 +70,7 @@
         number.substring(number.length - 10);
     }
   }
+
   async function paste() {
     const text = await navigator.clipboard.readText();
     document.getElementById("number").value = text;
