@@ -257,6 +257,7 @@ main {
   position: relative;
   display: inline-block;
   margin: 30px 0;
+  cursor: pointer;
   padding: 0;
   overflow: hidden;
   border-width: 0;
@@ -340,7 +341,11 @@ main {
       width: 150px;
       height: 150px; }
   .about-info {
-    grid-template-areas: 'bioimage' 'bio' 'job1' 'job2' 'job3';
+    grid-template-areas: 'bioimage'
+ 'bio'
+ 'job1'
+ 'job2'
+ 'job3';
     grid-template-columns: 1fr; }
   .projects {
     grid-template-columns: repeat(2, 1fr); } }
